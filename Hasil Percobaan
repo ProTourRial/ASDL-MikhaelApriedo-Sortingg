@@ -1,0 +1,19 @@
+Pada percobaan ini, jumlah langkah yang saya hitung berdasarkan jumlah perbandingan utama antar elemen selama proses pengurutan. Data worst-case untuk Insertion Sort dibuat dalam bentuk menurun, sedangkan data worst-case untuk Merge Sort dibuat agar menghasilkan jumlah perbandingan maksimum pada proses penggabungan.
+
+Algoritma	n	Langkah Percobaan	Teori Worst-Case
+Insertion Sort	10	       45	              45
+Merge Sort	10	       25	              25
+Insertion Sort	500	     124750	            124750
+Merge Sort	500	      3989	             3989
+Insertion Sort	1000	     499500	            499500
+Merge Sort	1000	      8977	             8977
+
+Berdasarkan tabel tersebut, hasil percobaan worst-case sesuai dengan teori. Insertion Sort memiliki jumlah langkah yang meningkat sangat besar ketika nilai n bertambah. Hal ini terjadi karena pada kondisi worst-case, setiap elemen harus dibandingkan dan digeser ke posisi yang sesuai. Rumus worst-case Insertion Sort adalah:
+
+n(n - 1) / 2
+
+Sementara itu, Merge Sort memiliki jumlah langkah yang lebih kecil karena algoritma ini membagi data menjadi dua bagian secara rekursif, lalu menggabungkan kembali data tersebut secara terurut. Kompleksitas Merge Sort adalah:
+
+O(n log n)
+
+Oleh karena itu, Merge Sort lebih efisien daripada Insertion Sort untuk jumlah data yang besar.
