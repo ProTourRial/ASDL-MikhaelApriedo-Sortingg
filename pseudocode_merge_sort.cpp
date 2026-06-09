@@ -1,72 +1,35 @@
-#include <iostream>
-#include <vector>
-using namespace std;
+MergeSort(A, left, right)
+    if right - left <= 1 then
+        return 0
 
-long long mergeData(vector<int>& data, int left, int mid, int right) {
-    vector<int> temp;
-    int i = left;
-    int j = mid + 1;
-    long long langkah = 0;
+    mid = left + (right - left) / 2
 
-    while (i <= mid && j <= right) {
-        langkah++;
+    langkah = MergeSort(A, left, mid)
+    langkah = langkah + MergeSort(A, mid, right)
+    langkah = langkah + Merge(A, left, mid, right)
 
-        if (data[i] <= data[j]) {
-            temp.push_back(data[i]);
-            i++;
-        } else {
-            temp.push_back(data[j]);
-            j++;
-        }
-    }
+    return langkah
 
-    while (i <= mid) {
-        temp.push_back(data[i]);
-        i++;
-    }
 
-    while (j <= right) {
-        temp.push_back(data[j]);
-        j++;
-    }
+Merge(A, left, mid, right)
+    buat array sementara temp
+    i = left
+    j = mid
+    langkah = 0
 
-    for (int k = 0; k < temp.size(); k++) {
-        data[left + k] = temp[k];
-    }
+    while i < mid and j < right do
+        langkah = langkah + 1
 
-    return langkah;
-}
+        if A[i] <= A[j] then
+            masukkan A[i] ke temp
+            i = i + 1
+        else
+            masukkan A[j] ke temp
+            j = j + 1
 
-long long mergeSort(vector<int>& data, int left, int right) {
-    long long langkah = 0;
+    masukkan sisa elemen bagian kiri ke temp
+    masukkan sisa elemen bagian kanan ke temp
 
-    if (left < right) {
-        int mid = left + (right - left) / 2;
+    salin temp ke A
 
-        langkah += mergeSort(data, left, mid);
-        langkah += mergeSort(data, mid + 1, right);
-        langkah += mergeData(data, left, mid, right);
-    }
-
-    return langkah;
-}
-
-int main() {
-    vector<int> data = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-
-    cout << "Data sebelum diurutkan: ";
-    for (int x : data) {
-        cout << x << " ";
-    }
-
-    long long jumlahLangkah = mergeSort(data, 0, data.size() - 1);
-
-    cout << "\nData setelah diurutkan: ";
-    for (int x : data) {
-        cout << x << " ";
-    }
-
-    cout << "\nJumlah langkah: " << jumlahLangkah << endl;
-
-    return 0;
-}
+    return langkah
