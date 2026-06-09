@@ -1,0 +1,11 @@
+Untuk average-case, yaitu menggunakan array acak sebanyak 30 kali percobaan untuk setiap ukuran data.
+
+Algoritma	n	Rata-rata Langkah	Langkah Minimum	  Langkah Maksimum
+Insertion Sort	10	      28.37	               17	          35
+Merge Sort	10	      22.70	               19	          25
+Insertion Sort	500	     63186.93	              59882	         67311
+Merge Sort	500	     3857.17	              3826	         3889
+Insertion Sort	1000	    251358.03	             243310	        258848
+Merge Sort	1000	     8710.77	              8649	         8757
+
+Dari hasil average-case, Insertion Sort tetap menghasilkan jumlah langkah yang jauh lebih besar dibandingkan Merge Sort, terutama ketika ukuran data meningkat menjadi n = 500 dan n = 1000. Hal ini menunjukkan bahwa Insertion Sort lebih cocok digunakan untuk data kecil atau data yang hampir terurut. Sebaliknya, Merge Sort lebih stabil dan lebih efisien untuk data besar karena pertumbuhan jumlah langkahnya mengikuti pola n log n.
